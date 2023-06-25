@@ -1,0 +1,30 @@
+<div class="general">
+    <div class="detalles">
+        <mat-grid-list cols="2" rowHeight="70px">
+            <mat-grid-tile [colspan]="1" [rowspan]="8">
+                <img [src]="coctel.strDrinkThumb" [alt]="coctel.strDrink">
+            </mat-grid-tile>
+            <mat-grid-tile class="titulo">
+                <h1 style="font-size: 3rem;">{{coctel.strDrink}}</h1>                
+            </mat-grid-tile>
+            <mat-grid-tile [rowspan]="2">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2 style="margin-top: 2rem;">Instructions</h2>
+                    <p style="padding-left: 10px; text-align: center;">{{coctel.strInstructions}}</p>
+                </div>               
+            </mat-grid-tile>
+            <mat-grid-tile [rowspan]="2">
+                <h2>Ingredientes</h2>
+                <ul>
+                    <li>{{coctel.strIngredient1}}</li>
+                    <li>{{coctel.strIngredient2}}</li>
+                    <li>{{coctel.strIngredient3}}</li>
+                    <li>{{coctel.strIngredient4}}</li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <a mat-raised-button color="primary" [href]="coctel.strImageSource" target="_blank">Más Info</a>               
+            </mat-grid-tile>
+        </mat-grid-list> 
+    </div>
+</div>

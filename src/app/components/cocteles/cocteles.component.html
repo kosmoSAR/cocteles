@@ -1,0 +1,15 @@
+<mat-grid-list cols="3" rowHeight="550px">
+    <mat-grid-tile *ngFor="let coctel of listadoCocteles">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{coctel.strDrink}}</mat-card-title>
+                <mat-card-subtitle>{{coctel.idDrink}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="coctel.strDrinkThumb"
+                [alt]="coctel.strDrink">
+            <mat-card-content>
+                <button mat-raised-button color="primary" routerLink="/detalles" (click)="mandarId(coctel.idDrink)" style="margin-top: 10px;">Ver más</button>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

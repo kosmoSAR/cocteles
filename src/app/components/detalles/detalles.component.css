@@ -1,0 +1,15 @@
+.general{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detalles{
+    height: 100%;
+    display: initial;
+    width: 80%;
+}
+
+.titulo h1{
+    margin-bottom: 0;
+}
