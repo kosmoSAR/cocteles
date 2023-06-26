@@ -8,7 +8,7 @@
             <img mat-card-image [src]="coctel.strDrinkThumb"
                 [alt]="coctel.strDrink">
             <mat-card-content>
-                <button mat-raised-button color="primary" routerLink="/detalles" (click)="mandarId(coctel.idDrink)" style="margin-top: 10px;">Ver más</button>
+                <button mat-raised-button color="primary" [routerLink]="['/detalles',coctel.idDrink]" style="margin-top: 10px;">Ver más</button>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>

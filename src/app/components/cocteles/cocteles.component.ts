@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CoctelesService } from 'src/app/services/cocteles.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { CoctelesService } from 'src/app/services/cocteles.service';
 export class CoctelesComponent implements OnInit {
 
   listadoCocteles:any[] = [];
-  @Output() id = new EventEmitter<any>()
 
   constructor(private _cocteles:CoctelesService){}
 
@@ -19,14 +18,7 @@ export class CoctelesComponent implements OnInit {
 
   obtenerCocteles(){
     this._cocteles.getCocteles().subscribe(
-      respuesta => {
-        this.listadoCocteles = respuesta.drinks.slice(1,10);         
-      }      
+      respuesta => {this.listadoCocteles = respuesta.drinks.slice(1,10);}      
     )
   }
-
-  mandarId(idCoctel:string){ 
-    this.id.emit(idCoctel);
-  }
-
 }

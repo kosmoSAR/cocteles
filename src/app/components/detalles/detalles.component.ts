@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CoctelesService } from 'src/app/services/cocteles.service';
 
 @Component({
@@ -6,18 +7,23 @@ import { CoctelesService } from 'src/app/services/cocteles.service';
   templateUrl: './detalles.component.html',
   styleUrls: ['./detalles.component.css']
 })
+
 export class DetallesComponent implements OnInit {
   coctel:any;
+  idCoctel:any;
 
-  constructor(private _cocteles:CoctelesService){
+  constructor(private _cocteles:CoctelesService, private ruta:ActivatedRoute){
+    this.ruta.params.subscribe(params => {    
+      this.idCoctel = params['id']; 
+    })
   }
 
   ngOnInit():void {
-    this.obtenerCoctel();
+    this.obtenerCoctel(this.idCoctel);
   }
 
-  obtenerCoctel(){
-    this._cocteles.getCoctel("14598").subscribe(
+  obtenerCoctel(id:any){
+    this._cocteles.getCoctel(id).subscribe(
       respuesta => { 
         this.coctel = respuesta.drinks[0];               
       }      
